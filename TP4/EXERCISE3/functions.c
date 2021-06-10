@@ -61,6 +61,60 @@ void libererArbre(arbre *T)
 }
 
 
+/* Implementation de la pile d'arbres*/
+
+int estVidePile(pile_arbre P)
+{
+    if (P.longueur ==0)
+        return 1;
+    return 0;
+}
+
+void empiler(arbre T,pile_arbre * P)
+{
+    if(P->longueur==N)
+    {
+        printf("Pile vide.\n");
+        return;
+    }
+    P->tete[P->longueur]=T;
+    P->longueur+=1;
+}
+
+arbre depiler(pile_arbre * P)
+{
+    if(estVidePile(*P))
+        return NULL;
+    arbre T=P->tete[P->longueur-1];
+    P->longueur-=1;
+    return T;
+}
+
+
+
+//pour aficher nitre arbre
+void affichagePrefixe(arbre T)
+{
+    if(T==NULL)
+        return;
+    pile_arbre P={NULL,0};
+    arbre temp=T;
+    empiler(T,&P);
+    while(estVidePile(P)==0)
+    {
+        temp=depiler(&P);
+        printf("%d\t",temp->cle);
+        if(temp->droit!=NULL)
+            empiler(temp->droit,&P);
+        if(temp->gauche!=NULL)
+            empiler(temp->gauche,&P);
+    }
+    return;
+}
+
+
+
+
 
 
 
