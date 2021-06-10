@@ -1,3 +1,6 @@
+#include "functions.h"
+
+
 // Test à vide d'un arbre
 int estVideArbre(arbre T)
 {
