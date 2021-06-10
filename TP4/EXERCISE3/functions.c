@@ -45,6 +45,25 @@ arbre faireArbre(int x,arbre T_1,arbre T_2)
     return T;
 }
 
+
+// Liberer
+void libererArbre(arbre *T)
+{
+    arbre temp=*T;
+    if(temp==NULL)
+        return;
+    if(temp->gauche!=NULL)
+        libererArbre(&temp->gauche);
+    if(temp->droit!=NULL)
+        libererArbre(&temp->droit);
+    free(temp);
+    *T=NULL;
+}
+
+
+
+
+
 //pour calculer la hauteur
 int hauteur(arbre T)
 {
