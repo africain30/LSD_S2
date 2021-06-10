@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include<stdlib.h>
 
+
+
 /* La structure arbre*/
 struct noeud
 {
@@ -26,3 +28,21 @@ int hauteur(arbre); /* Calcule la hauteur d'un arbre */
 
 //la fonction demandé dans l'exercice;
 void equilibrer_Avl(int ,arbre * );
+
+
+
+#define N 200
+
+/* La pile d'arbres implementée à l'aide d'un tableau*/
+struct pile_arbre
+{
+    arbre tete[N];
+    unsigned longueur;
+};
+typedef struct pile_arbre pile_arbre;
+
+// Prototypes
+int estVidePile(pile_arbre);
+void empiler(arbre,pile_arbre *);
+arbre depiler(pile_arbre *);
+
